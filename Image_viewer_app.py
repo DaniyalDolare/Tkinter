@@ -19,7 +19,7 @@ def forward_back(num):
     my_label = Label(image=my_list[num-1])
     button_fwd = Button(root, text=">>", command=lambda: forward_back(num+1))
     button_back = Button(root, text="<<", command=lambda: forward_back(num-1))
-    if num==6:
+    if num==len(my_list):
         button_fwd = Button(root, text=">>", state=DISABLED)
     if num==1:
         button_back = Button(root, text="<<", state=DISABLED)
@@ -28,7 +28,7 @@ def forward_back(num):
     button_back.grid(row=1, column=0)
     status = Label(root, text="image "+ str(num) +" of " + str(len(my_list)), bd=1, relief=SUNKEN, anchor=E)
     status.grid(row=2, column=0, columnspan=3, sticky=W + E)
-button_back = Button(root,text="<<", command = lambda : forward_back(1))
+button_back = Button(root,text="<<", state=DISABLED)
 button_exit = Button(root,text="EXIT",command=root.quit)
 button_fwd = Button(root, text=">>",command = lambda : forward_back(2))
 button_exit.grid(row=1,column=1)
